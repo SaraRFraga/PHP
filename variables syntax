@@ -1,0 +1,19 @@
+<?php
+
+//variables in PHP start with $ and cannot start with numbers
+$nombre = "Sara";
+$_nombre = "Sara"
+$nombre_ = "Sara"
+
+echo $nombre; //echo prints the value
+var_dump($nombre); //prints more info
+define('constante', "This is the value of the constant");
+echo constante;
+
+const constante2 = "Hola 2"; //This syntax is not as common as the previous one
+echo constante2;
+
+$nombreCliente = "Sarah";
+$nombre_cliente = "Sarah";
+
+?>
