@@ -1,10 +1,12 @@
 <?php
 
-//we are going to connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'appsalon');
+function conectarDB() : mysqli{
+    $db = mysqli_connect('localhost', 'root', '', 'bienesraices_crud');
 
-if(!$db){ //checking if the connection was made
-    echo "There was an error connecting to the database";
-} else { echo "Connected successfully"; 
+    if(!$db) {
+        echo "Error no se pudo conectar";
+        exit; //impide que se ejecute más código, peligro de que se revele información sensible sin este paso
+    } 
+
+    return $db; //aquí retorna a una instancia de la connexión
 }
-exit; //prevents execution of more code
