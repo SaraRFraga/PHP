@@ -3,8 +3,12 @@ var_dump($carrito);
 echo"</pre>";
 
 
-//Acceder a un arreglo con la superglobal $_SERVER
+//Acceder al valor de un arreglo con la superglobal $_SERVER
+  echo "<pre>";
+  var_dump($_SERVER["REQUEST_METHOD"]);
+  echo"</pre>";
 
-echo "<pre>";
-var_dump($_SERVER["REQUEST_METHOD"]);
-echo"</pre>";
+//foreach para ejecutar errores de un arreglo si los hay
+  <?php foreach($errores as $error): ?>
+    <?php echo $error; ?>  
+  <?php endforeach; ?>
