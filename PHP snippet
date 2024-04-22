@@ -1,3 +1,10 @@
 echo "<pre>";
 var_dump($carrito);
 echo"</pre>";
+
+
+//Acceder a un arreglo con la superglobal $_SERVER
+
+echo "<pre>";
+var_dump($_SERVER["REQUEST_METHOD"]);
+echo"</pre>";
