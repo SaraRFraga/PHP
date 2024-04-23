@@ -1,0 +1,26 @@
+// Array para mensajes de errores
+    
+$errores = [];
+
+$titulo = '';
+$precio = '';
+$descripcion = '';
+
+//si algún valor está vacío lo añade al array de errores
+
+if(!$titulo) { 
+  $errores[] = "Debes añadir un titulo";
+}
+
+if(!$precio) {
+  $errores[] = 'El Precio es Obligatorio';
+}
+
+if( strlen( $descripcion ) < 50 ) {
+  $errores[] = 'La descripción es obligatoria y debe tener al menos 50 caracteres';
+}
+
+//comprobamos el array
+echo "<pre>";
+var_dump($errores);
+echo "</pre>";
