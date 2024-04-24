@@ -1,0 +1,10 @@
+//Seleccionador con los vendedores extraídos de la BD
+
+<select name="vendedor">                    
+  <option value="">-- Seleccione --</option>
+    <?php while($vendedor =  mysqli_fetch_assoc($resultado) ) : ?>                    
+      <option value=""> 
+        <?php echo $vendedor['nombre'] . " " . $vendedor['apellido']; ?> 
+      </option>
+    <?php endwhile; ?>
+</select>
