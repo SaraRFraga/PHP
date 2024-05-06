@@ -1,0 +1,7 @@
+// Validación para ver el contenido que ha escrito el usuario en un formulario
+
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+  echo "<pre>";
+  var_dump($_POST);
+  echo"</pre>";
+}
