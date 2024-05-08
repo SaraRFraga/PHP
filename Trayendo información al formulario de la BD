@@ -1,3 +1,10 @@
+// Consultar para obtener los vendedores
+  
+  $consulta = "SELECT * FROM vendedores";
+  $resultado = mysqli_query($db, $consulta);
+
+
+
 //Seleccionador con los vendedores extraídos de la BD
 
 <select name="vendedor">                    
