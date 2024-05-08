@@ -1,4 +1,4 @@
-// Consultar para obtener los vendedores
+// Consultar BD para obtener información de la tabla 'vendedores'
   
   $consulta = "SELECT * FROM vendedores";
   $resultado = mysqli_query($db, $consulta);
