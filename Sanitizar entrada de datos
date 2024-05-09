@@ -1,0 +1,40 @@
+La función mysqli_real_escape_string() se utiliza para evitar la inyección de caracteres especiales en una consulta SQL. Esta función escapa ciertos caracteres especiales en una cadena, lo que significa que los caracteres especiales se representan con una secuencia de caracteres especiales que no pueden ser interpretados como parte de la consulta. Esto ayuda a proteger contra ataques de inyección de SQL, ya que los atacantes no pueden introducir comandos maliciosos en la consulta.
+
+Sin embargo, la función mysqli_real_escape_string() no es suficiente por sí sola para proteger contra todos los tipos de ataques. Por ejemplo, si estás recibiendo una entrada del usuario y esperas que sea un número entero, puedes usar la función filter_var() con el argumento FILTER_VALIDATE_INT para asegurarte de que el valor es un número entero válido. De esta manera, puedes evitar que el usuario ingrese un valor no numérico que podría romper tu código o incluso ejecutar una consulta SQL maliciosa.
+
+En general, es buena idea utilizar varias capas de protección para evitar ataques de inyección de SQL y otros tipos de ataques. Esto incluye sanitizar y validar las entradas del usuario, además de utilizar herramientas como mysqli_real_escape_string(). Con el tiempo, aprenderás más sobre cómo proteger tu código de ataques y cómo implementar prácticas de seguridad adecuadas.
+
+  $sql = "INSERT INTO propiedades(titulo, precio, descripcion, habitaciones, wc, estacionamiento,creado,idvendedor)";
+            $sql.= " VALUES(:titulo, :precio, :descripcion, :habitaciones,";
+            $sql.= " :wc, :estacionamiento, NOW(), :vendedorid)";
+            
+            //Evita inyeccion SQL
+            $query = $db->prepare($sql);
+            $query->bindParam(":titulo",$titulo);
+            $query->bindParam(":precio",$precio);
+            $query->bindParam(":descripcion",$descripcion);
+            $query->bindParam(":habitaciones",$habitaciones);
+            $query->bindParam(":wc",$wc);
+            $query->bindParam(":estacionamiento",$estacionamiento);
+            $query->bindParam(":vendedorid",$vendedorid);
+            $query->execute();
+
+Al vincular los parámetros con las variables utilizando bindParam, estás asegurándote de que los datos sean tratados como valores y no como parte de la instrucción SQL. Esto evita que los datos ingresados por los usuarios puedan alterar la estructura de la consulta.
+
+
+            $query = "INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamientos, vendedorId) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                      
+            $stmt = mysqli_prepare($db, $query);
+                         
+            mysqli_stmt_bind_param($stmt, "sisiiii", $titulo, $precio, $descripcion, $habitaciones, $wc, $estacionamientos, $vendedorId); 
+                       
+            $res = mysqli_stmt_execute($stmt);
+
+
+Se puede observar que los values en el query son todos "?". Esto es porque en la linea 5 el segundo argumento "sisiiii" tiene como proposito "avisarle" a bindParam que debe esperar recibir en cada "value"($titulo, $precio, etc.) esto usando la siguiente logica:
+s = string.
+i = integer.
+
+Por lo que en queda "sisiiii" pues si revisamos los valores a recibir:  $titulo = string(s), $precio = integer(i), $descripcion = string(s), $habitaciones = integer(i), $wc = integer(i), $estacionamientos = integer(i) y $vendedorId(i).
+Si se fijan en las letras que hay en los parentesis se forma el segundo argumento del codigo que vemos en la quinta linea.
+
