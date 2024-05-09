@@ -1,0 +1,7 @@
+//Redireccionar al usuario para evitar el reenvío de un mismo formulario
+//El siguiente header funciona si no hay nada de html previo, si no daría un error
+//El redireccionamiendo debe ser poco usado para no crear problemas como loops
+
+        if($resultado) { 
+            header('Location: /admin?resultado=1');
+        }
