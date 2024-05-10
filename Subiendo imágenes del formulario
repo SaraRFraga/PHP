@@ -1,0 +1,22 @@
+            // /** SUBIDA DE ARCHIVOS */
+
+            // Crear carpeta
+            $carpetaImagenes = '../../imagenes/';
+
+            if(!is_dir($carpetaImagenes)) { //si no existe la carpeta, la crea una sola vez
+                mkdir($carpetaImagenes); //y si no hay errores crea la carpeta
+            }
+
+            // Generar un nombre único
+            $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
+
+            // Subir la imagen
+            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen . ".jpg");;
+
+
+            //Otra forma de escribir el aterior código, quizás menos limpio en la concatenación
+            // Crear carpeta
+            $carpetaImagenes = '../../imagenes';
+
+            // Subir la imagen
+            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . "/" . $nombreImagen . ".jpg");
