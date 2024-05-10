@@ -1,0 +1,9 @@
+//El placehorder ?? funciona similar a isset. Revisa que haya  un GET con el valor 'resultado' y si no exite le asigna null
+
+  $resultado = $_GET['resultado'] ?? null;
+
+//Por lo tanto, si no se cumple la condición anterior, el siguiente código lo evalúa como falso y no muestra el mensaje
+
+        <?php if( intval( $resultado ) === 1): ?>
+            <p class="alerta exito">Anuncio creado correctamente</p>
+        <?php endif; ?>
