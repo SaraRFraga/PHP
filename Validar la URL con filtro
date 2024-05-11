@@ -1,0 +1,8 @@
+    //Validar la URL por ID válido para que no inserten los usuarios datos maliciosos
+
+    $id = $_GET['id'];
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+
+    if(!$id) {
+        header('Location: /admin');
+    }
