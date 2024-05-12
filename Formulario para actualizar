@@ -1,0 +1,14 @@
+// Formulario para actualizar: obtener el vendedor de la base de datos 
+
+            <fieldset>
+                <legend>Vendedor</legend>
+                
+                <select name="vendedores" id="">
+                    <option value="">-- Seleccione --</option>
+                
+                    <?php while($vendedores =  mysqli_fetch_assoc($resultado) ) : ?>
+                        <option  <?php echo $vendedores_id === $vendedores['id'] ? 'selected' : ''; ?>   value="<?php echo $vendedores['id']; ?>"> 
+                        <?php echo $vendedores['nombre'] . " " . $vendedores['apellido']; ?> </option>
+                    <?php endwhile; ?>
+                </select>
+            </fieldset>
