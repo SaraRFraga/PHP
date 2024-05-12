@@ -1,4 +1,4 @@
-    //Validar la URL por ID válido para que no inserten los usuarios datos maliciosos
+    //Validar la URL por ID válido para que los usuarios no inserten datos maliciosos
 
     $id = $_GET['id'];
     $id = filter_var($id, FILTER_VALIDATE_INT);
