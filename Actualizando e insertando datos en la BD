@@ -1,0 +1,13 @@
+// Insertar en la base de datos 
+            $query = "INSERT INTO propiedades ( titulo, precio, imagen, descripcion, habitaciones, wc, estacionamiento, creado, vendedores_id ) VALUES ( '$titulo', '$precio', '$nombreImagen', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado', '$vendedores_id' )";
+
+
+
+// Actualizar en la base de datos. Los datos numéricos van sin comillas
+            $query = " UPDATE propiedades SET titulo = '{$titulo}', precio = '{$precio}', imagen = '{$nombreImagen}', descripcion = '{$descripcion}', habitaciones = {$habitaciones}, wc = {$wc}, estacionamiento = {$estacionamiento}, vendedores_id = {$vendedores_id} WHERE id = {$id} ";
+            
+            //Importante: comprobar query antes de ejecutar código
+            echo $query; 
+            exit; 
+
+
