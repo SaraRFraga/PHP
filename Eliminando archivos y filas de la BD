@@ -1,0 +1,32 @@
+//Eliminando archivos y filas de la BD
+
+//El operador de fusión nula (??) comprueba si el valor antes de él es null o no está definido. Si es así, entonces devuelve el valor después del operador (null en este caso). Esto significa que si $_GET['resultado'] no tiene un valor (por ejemplo, si no se envió ningún parámetro resultado en la URL), entonces $resultado será asignado como null.
+
+    $resultado = $_GET['resultado'] ?? null;
+
+    
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $id = $_POST['id'];
+        $id = filter_var($id, FILTER_VALIDATE_INT);
+
+        if($id) {
+            // Eliminar el archivo imagen
+            $query = "SELECT imagen FROM propiedades WHERE id = {$id}";
+
+            $resultado = mysqli_query($db, $query);
+            $propiedad = mysqli_fetch_assoc($resultado);
+
+            unlink('../imagenes/' . $propiedad['imagen']);      //la función unlink elimina de la carpeta imágenes la imagen que corresponde
+
+            // Eliminar la propiedad con todos sus valores (nombre, descripción, etc)
+            $query = "DELETE FROM propiedades WHERE id = {$id}";    //cuidado con el WHERE para no borrar la tabla!!
+            $resultado = mysqli_query($db, $query);
+
+            if($resultado) {
+                header('location: /admin/?resultado=3');      //redirecciona al usuario con el mensaje 3
+            }
+        }
+    }
+
+        <?php elseif( intval( $resultado ) === 3): ?>
+            <p class="alerta exito">Anuncio eliminado correctamente</p>
