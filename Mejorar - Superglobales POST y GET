@@ -1,0 +1,13 @@
+// Validación para ver el contenido que ha escrito el usuario en un formulario
+
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+  echo "<pre>";
+  var_dump($_POST);
+  echo"</pre>";
+}
+
+
+      <!-- GET: para leer url o pasar datos de una pantalla a otra. Obtener datos servidor
+                POST: para inicio de sesión o información más segura. Enviar datos  
+                SERVER: trae información detallada de lo que pasa en el servidor
+                FILES: permite ver el contenido de los archivos-->
