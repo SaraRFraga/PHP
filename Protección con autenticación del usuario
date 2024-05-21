@@ -1,0 +1,35 @@
+Protegiendo las páginas con un inicio de sesión
+
+session_start();
+
+    // echo "<pre>";
+    // var_dump($_SESSION);
+    // echo "</pre>";
+
+    $auth = $_SESSION['login'];
+
+    if(!$auth) {
+        header('location: /');
+    }
+
+
+//*Forma más inteligente utilizando una función
+
+function estaAutenticado() : bool {
+    session_start();
+
+    $auth = $_SESSION['login'];
+    if($auth) {
+        return true;
+    }
+    return false;
+}
+
+
+//*Reutilizamos el siguiente código en las páginas necesarias
+    require '../../includes/funciones.php';
+    $auth = estaAutenticado();
+
+    if(!$auth) {
+        header('location: /');
+    }
