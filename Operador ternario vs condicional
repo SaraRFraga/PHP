@@ -1,0 +1,20 @@
+Comparación entre operador ternario y operador condicional/condicional. 
+
+- **Operador Ternario**:
+
+  <?php echo $inicio? "<h1>Venta de Casas y Apartamentos Exclusivos de Lujo</h1>" : '';?>
+
+//Este código verifica si `$inicio` es verdadero. Si es así, imprime el encabezado HTML; de lo contrario, imprime nada (una cadena vacía).
+
+- **Operador Condicional**:
+  <?php
+    if($inicio) {
+        echo "<h1>Venta de Casas y Apartamentos Exclusivos de Lujo</h1>";
+    }
+  ?>
+
+//Este bloque de código hace exactamente lo mismo que el operador ternario anterior, pero de manera más explícita. Primero evalúa la condición `$inicio`. Si es verdadera, ejecuta el bloque de código dentro del `if`, que en este caso imprime el encabezado HTML.
+
+Ambos ejemplos logran el mismo resultado, pero el operador ternario es más adecuado para situaciones simples donde solo necesitas decidir entre dos opciones basadas en una condición, es una forma concisa de escribir una declaración `if-else` en una sola línea, el operador condicional completo incluye tanto la evaluación de la condición (`$inicio`) como la ejecución de bloques de código basados en esa evaluación.
+
+El operador condicional, por otro lado, es más versátil y se presta mejor a situaciones complejas donde podrías tener múltiples condiciones o acciones basadas en diferentes resultados.
