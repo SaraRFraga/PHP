@@ -1,0 +1,17 @@
+Hay algunas diferencias sutiles en cómo PHP maneja las comillas simples y dobles dentro de las cadenas de texto:
+
+Comillas Simples (')
+Dentro de una cadena de texto delimitada por comillas simples, las comillas simples no deben escaparse. Esto significa que puedes incluir comillas simples dentro de una cadena de texto sin necesidad de escaparlas. Son ideales para incluir caracteres especiales o comillas dobles dentro de la cadena de texto sin complicarte con la escape de caracteres.
+
+Comillas Dobles (")
+Dentro de una cadena de texto delimitada por comillas dobles, las comillas dobles sí deben escaparse para incluirlas literalmente en la cadena.
+Son comúnmente utilizadas cuando se trabaja con JSON, XML, o HTML, ya que estos formatos a menudo utilizan comillas dobles para delimitar cadenas de texto.
+
+Por ejemplo, para incluir una cita que contiene comillas dobles, se puede hacer de la siguiente manera usando comillas dobles para la cadena:
+
+static::$errores[] = "La cita dice: \"No hay nada más constante que el cambio\".";
+O usando comillas simples para la cadena:
+
+static::$errores[] = 'La cita dice: "No hay nada más constante que el cambio".';
+
+Ambas opciones son válidas y funcionarán correctamente en PHP. La elección entre ellas depende de tus necesidades específicas y de las convenciones de codificación que sigas.
